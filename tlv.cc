@@ -218,8 +218,6 @@ void TLVS::printValue(const uint8_t* data, size_t length)
             buffer[1] = ' ';
             buffer[2] = '\0';
             Serial.print(buffer);
-
-            printf("%c ", data[i]);
         }
     } else {
         printHex(data, length);
