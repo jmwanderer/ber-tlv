@@ -4,10 +4,7 @@
 // Copyright (c) 2025 James Wanderer
 // 
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <assert.h>
+#include <Arduino.h>
 
 #include "tlv.h"
 
@@ -37,9 +34,11 @@ int main()
 
     // Dump the decoded TLV structure
     tlvNode = tlvs.firstTLV();
-    printf("TLV Node %x\n", tlvNode->getTag());
+    Serial.print("TLV Node ");
+    Serial.println(tlvNode->getTag(), HEX);
     for (childNode = tlvNode->firstChild(); childNode; childNode = tlvNode->nextChild(childNode)) {
-        printf("Child Node %x\n", childNode->getTag());
+        Serial.print("Child Node ");
+        Serial.println(childNode->getTag(), HEX);
     }
     TLVS::printTLV(tlvNode);
 }
