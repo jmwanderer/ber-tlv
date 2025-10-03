@@ -11,11 +11,15 @@
 // Buffer to encode into, decode from.
 uint8_t buffer[255];
 
-int main()
+void setup()
 {
     TLVS tlvs;
     TLVNode *tlvNode, *childNode;
     size_t data_size;
+
+    while (!Serial) delay(10);
+    Serial.println("-------Encode and Decode TLVs--------");
+
 
     // Data for our TLVs
     uint8_t abc[] = { 0x65, 0x66, 0x67 };
@@ -41,5 +45,9 @@ int main()
         Serial.println(childNode->getTag(), HEX);
     }
     TLVS::printTLV(tlvNode);
+}
+
+void loop() {
+    // Nothing
 }
 
