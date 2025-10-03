@@ -1,9 +1,8 @@
 # BER TLV Encoder / Decoder
 
-A C++ implementation for BER TLV encoding and decoding.
+A C++ implementation for BER TLV encoding and decoding for the Arduino.
 
-Intended to be light weight with reduced dynamic
-memory allocation.
+Intended to be light weight with reduced dynamic memory allocation.
 
 Supports 1 or 2 byte tag values, definite length form, and
 a maximum of 65535 TLV length.
@@ -29,28 +28,40 @@ tlvNode = tlvs.firstTLV();
 printf("Tag: %x\n", tlvNode->getTag());
 ```
 
-- See example.cc for more details.
+- See tlv.ino for example usage.
 - See tlv.h for full interface.
 
 
-## Building
+## Run the example
 
-Compile and link with tlv.cc
+The example code, tlv.ino, outputs results to the serial port
+at 9600 baud. 
+
+The fastest way to run the example is to copy the src (tlv.h, tlv.cc) and 
+example (tlv.ino) files to:
+- Arduino IDE: into a new sketch
+- Platform IO: into the src/ directory of a new proejct 
+
+## Use as a library
+
+This project can be used as a library with the ArduinoIDE or Platform IO.
+
+### Arduino IDE
+
+Select install in the library manager
+
+### Platform IO
+
+Set lib_deps in platformio.ini
 ```
-g++ -o example example.cc tlv.cc
+lib_deps =
+    https://github.com/jmwanderer/ber-tlv.arduino
 ```
 
 ## BER TLV Spec
 
 BER TLV on Wikipedia
 <https://en.wikipedia.org/wiki/X.690#BER_encoding>
-
-## Test Cases
-
-run via `make tests`
-
-Uses some test cases found in
-<https://github.com/toumilov/python-ber-tlv/blob/main/tests/test.py>
 
 
 
