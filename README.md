@@ -65,3 +65,9 @@ BER TLV on Wikipedia
 
 
 
+## Note
+
+This library is a port of https://github.com/jmwanderer/ber-tlv
+
+Original development and testing is done on Linux and ported to the
+Arduino framework.
